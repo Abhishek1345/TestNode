@@ -7,7 +7,7 @@ app.use(cors({
     credentials:true,
     origin:'http://127.0.0.1:5500'
 }));
-var PORT = 8080;
+var PORT = process.env.PORT || 8080;
 
 // Without middleware
 app.get('/', function(req, res){
