@@ -1,6 +1,11 @@
 var express = require('express');
 var cors = require('cors');
 //noexport const NODE_TLS_REJECT_UNAUTHORIZED='0';
+const { Pool } = require('pg');
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }
+});
 var nodemailer = require('nodemailer');
 var transporter= nodemailer.createTransport({
 	service:'gmail',
